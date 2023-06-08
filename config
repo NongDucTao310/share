@@ -1,1 +1,8 @@
+Use the WebClient class in System.Net:
 
+var json = new WebClient().DownloadString("url");
+Keep in mind that WebClient is IDisposable, so you would probably add a using statement to this in production code. This would look like:
+
+using (WebClient wc = new WebClient())
+{
+   var json = wc.DownloadString("url");
